@@ -1,0 +1,100 @@
+@use '../../../vendor/styles/mixins.scss' as mixins;
+@use '../../../vendor/styles/animation.scss';
+
+.firstSection {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.firstSection_matrixContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.matrixColumn {
+  position: absolute;
+  top: -100%;
+  width: calc(100vw / var(--col-count));
+  height: 100%;
+  font: bold 16px/18px monospace;
+  white-space: nowrap;
+  animation: fall linear infinite;
+  left: calc(var(--col-index) * (100vw / var(--col-count)));
+
+  @media (max-width: 768px) {
+    width: calc(100vw / 30);
+  }
+
+  @media (max-width: 480px) {
+    width: calc(100vw / 20);
+  }
+}
+
+.matrixColumn::before {
+  content: "밤새도록 춤을 춰, 모두 잠든 새벽까지 내 시간은 빛나고, 너넨 아직도 제자리 이게 랩, 이게 힙합, 이게 방탄의 스웨그 내 하루는 너넨 꿈도 못 꿀 하루 나는 위로, 너넨 아래로, 우린 서로 다른 세상 저 멀리서 짖어대, 넌 그냥 개 짖는 소리 ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 70%, #000),
+              linear-gradient( 
+                to bottom,
+              #6A70FF 0%,  
+              #565DFF 30%,
+              #3D44E0 60%,
+              #0A12B0 90%  
+              );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  writing-mode: vertical-lr;
+  letter-spacing: 1px;
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh); }
+}
+
+.firstSection_contentWrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  width: 60%;
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.firstSection_title {
+  color: var(--text-color-white);
+  text-shadow: 0 0 10px var(--bg-color-purple);
+  @include mixins.font(600, var(--font-size-60), 1.3);
+  margin-bottom: 1.5rem;
+}
+
+.firstSection_contentBox {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2.6rem 2rem;
+  backdrop-filter: blur(5px);
+  border: var(--border);
+  border-radius: var(--border-radius10);
+}
+
+.firstSection_contentBoxText {
+  color: var(--text-color-grey);
+  @include mixins.font(400, var(--font-size-18), 1.3);
+}

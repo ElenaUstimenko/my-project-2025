@@ -1,0 +1,104 @@
+@use '../../vendor/styles/mixins.scss' as mixins;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+
+  &.closing {
+    animation: fadeOut 0.3s ease forwards;
+  }
+}
+
+.modal {
+  background: var(--bg-color-main);
+  border-radius: var(--border-radius10);
+  padding: 60px 20px 40px;
+  position: relative;
+  width: 60%;
+  max-height: 90vh;
+  overflow: auto;
+  transform: scale(0.9);
+  opacity: 0;
+  animation: zoomIn 0.3s ease 0.1s forwards;
+
+  .closing & {
+    animation: zoomOut 0.3s ease forwards;
+  }
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text-color-dark-grey);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 10;
+
+  &:hover {
+    background-color: var(--bg-color-white);
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}

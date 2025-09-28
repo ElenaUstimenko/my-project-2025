@@ -1,0 +1,220 @@
+@use '../../vendor/styles/mixins.scss' as mixins;
+
+/* animation btn => line */
+.btn_animationLine {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  --border-right: 0;
+  --text-stroke-color: var(--text-color-light-grey);
+  --animation-color: var(--text-color-blue);
+  --fs-size: var(--font-size-24);
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.btn_animationLineHoverText {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.6s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.btn_animationLine:hover .btn_animationLineHoverText {
+  width: 100%;
+  filter: drop-shadow(0 0 12px var(--animation-color));
+}
+/* animation btn => line */
+
+/* start animation for text => shine */
+.text_shine {
+  background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #f2f2f2 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 760px;
+  }
+}
+
+@-moz-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 760px;
+  }
+}
+
+@-webkit-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 760px;
+  }
+}
+
+@-webkit-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 760px;
+  }
+}
+/* finish animation for text => shine */
+
+/* two btn animation */
+.btn_back {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--border-radius500);
+}
+
+.btn_forward {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--border-radius500);
+}
+
+.btn_forward.disabled {
+  background-image: url(../../../public/images/btn/btn_black_right.svg);
+}
+
+.btn_back.disabled {
+  background-image: url(../../../public/images/btn/btn_black_left.svg);
+}
+
+.btn_forward:not(.disabled) {
+  cursor: pointer;
+  background-image: url(../../../public/images/btn/btn_yellow_right.svg);
+}
+
+.btn_back:not(.disabled) {
+  cursor: pointer;
+  background-image: url(../../../public/images/btn/btn_yellow_left.svg);
+}
+
+.btn_container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+/* back */
+.btn_singleWrapper .btn_back:not(.disabled) {
+  display: block;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  outline: none;
+}
+
+.btn_singleWrapper .btn_back:not(.disabled):before {
+  content: '';
+  position: absolute;
+  border-radius: var(--border-radius500);
+  inset: 0;
+  border: 1px solid var(--bg-color-main);
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+.btn_singleWrapper .btn_back:not(.disabled):after {
+  content: '';
+  position: absolute;
+  border-radius: var(--border-radius500);
+  inset: 4px;
+  border: 3px solid var(--bg-color-main);
+  transform: scale(1.1);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+}
+
+.btn_singleWrapper .btn_back:not(.disabled):hover:before {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn_singleWrapper .btn_back:not(.disabled):hover:after {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+/* forward */
+.btn_singleWrapper .btn_forward:not(.disabled) {
+  display: block;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  outline: none;
+}
+
+.btn_singleWrapper .btn_forward:not(.disabled):before {
+  content: '';
+  position: absolute;
+  border-radius: var(--border-radius500);
+  inset: 0;
+  border: 1px solid var(--bg-color-main);
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+.btn_singleWrapper .btn_forward:not(.disabled):after {
+  content: '';
+  position: absolute;
+  border-radius: var(--border-radius500);
+  inset: 4px;
+  border: 3px solid var(--bg-color-main);
+  transform: scale(1.1);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+}
+
+.btn_singleWrapper .btn_forward:not(.disabled):hover:before {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn_singleWrapper .btn_forward:not(.disabled):hover:after {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+/* two btn animation */

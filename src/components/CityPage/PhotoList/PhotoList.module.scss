@@ -1,0 +1,44 @@
+@use '../../../../src/vendor/styles/mixins.scss' as mixins;
+@import '../../../vendor/styles/animation.scss';
+
+.photoList {
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 40px;
+}
+
+.photoList_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+.photoList_card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.photoList_imageContainer {
+  position: relative;
+  width: 100%;
+  height: 360px;
+}
+
+.photoList_image {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

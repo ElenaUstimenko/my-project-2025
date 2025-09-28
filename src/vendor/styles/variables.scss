@@ -1,0 +1,67 @@
+:root {
+  --bg-color-main: #263449;
+  --bg-color-main-dark: #1e293a;
+  --bg-color-purple: #565dff;
+  --bg-color-yellow: #dff749;
+  --bg-color-grey: #414141;
+  --bg-color-white: #f2f2f2;
+  --bg-color-black: #111111;
+  --bg-color-card: #171717;
+  --bg-color-header: #151515;
+  --text-color-white: #f2f2f2;
+  --text-color-black: #000000;
+  --text-color-grey: #666666;
+  --text-color-dark-grey: #333;
+  --text-color-light-grey: #dddddd;
+  --text-color-dark-grey: #999999;
+  --text-color-dark-blue: #010624;
+  --text-color-blue: #565dff;
+  --text-color-yellow: #dff749;
+  --text-color-card-grey: #6f6f6f;
+  --border: 1px solid #263449;
+  --border-radius10: 10px;
+  --border-radius20: 20px;
+  --border-radius30: 30px;
+  --border-radius50: 50px;
+  --border-radius500: 500px;
+  --border-header: 1px solid #535353;
+  --border-footer: 1px solid #555555;
+  --border-footer-link: 2px solid #f2f2f2;
+  --border-black: 3px solid #000000;
+  --transition-duration: 0.3s;
+  --transition-timing-fn: ease-in-out;
+  --font-size-18: 18px;
+  --font-size-24: 1.2rem;
+  --font-size-35: 1.6rem;
+  --font-size-40: 1.8rem;
+  --font-size-50: 2.4rem;
+
+  @media (max-width: 1661px) {
+    --font-size-24: 1rem;
+    --font-size-40: 1.5rem;
+    --font-size-50: 2.4rem;
+  }
+
+  @media (max-width: 1430px) {
+    --font-size-35: 1.3rem;
+    --font-size-40: 1.4rem;
+    --font-size-50: 2rem;
+  }
+
+  @media (max-width: 1194px) {
+    --font-size-50: 1.8rem;
+  }
+
+  @media (max-width: 846px) {
+    --font-size-50: 1.6rem;
+  }
+
+  @media (max-width: 540px) {
+    --font-size-40: 1.4rem;
+    --font-size-50: 1.5rem;
+  }
+
+  @media (max-width: 440px) {
+    --font-size-50: 1.3rem;
+  }
+}

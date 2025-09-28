@@ -1,35 +1,24 @@
-![Image alt](./src/images/for-readme/main_img.webp)
+![Image alt](./public/images/for_readme.webp)
 
-# **my-portfolio**
 
----
 
-## Link:
+# **my-project 2025 by Next**  
 
-https://elenaustimenko.github.io/my-portfolio/
 
 ---
 
-## Description:
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Стек+проекта)](https://git.io/typing-svg)
 
-The project demonstrates my skills and abilities.
 
-On the site you can find information about most of my projects and find all the necessary links to contact me.
 
----
+✔️ Next 15*
 
-## Stack:
+✔️ TypeScript 5*
 
-✔️ React
+✔️ React 19*
 
-✔️ CSS
+✔️ CSS Modules 
 
-✔️ BEM metodology
 
-✔️ Functional components
-
-✔️ Framer Motion Library
-
-✔️ Adaptive layout
 
 ---
