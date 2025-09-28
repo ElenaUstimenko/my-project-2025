@@ -79,13 +79,18 @@ export const Header = () => {
   return (
     <header className={classes.header} id='top'>
       <div className={classes.header_sectionFirst}>
-        <Link href='/'>
-          <Image
-            src={logo}
-            className={classes.header_logo}
-            alt='логотип компании с самолётом облетающим земной шар'
-          />
-        </Link>
+        <div className={classes.header_containerForLogo}>
+          <Link href='/'>
+            <Image
+              src={logo}
+              className={classes.header_logo}
+              alt='логотип компании с самолётом облетающим земной шар'
+            />
+          </Link>
+          <p className={classes.header_titleText}>
+            Путешествие в Республику Корея
+          </p>
+        </div>
         <div className={classes.header_contactsWrapper}>
           <div className={classes.header_containerForLink}>
             <Link className={classes.btn_animationLine} href='tel:89628786400'>

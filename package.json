@@ -2,7 +2,7 @@
   "name": "my-project",
   "version": "0.1.0",
   "private": true,
-   "homepage": "https://elenaustimenko.github.io/my-project-2025/",
+  "homepage": "https://elenaustimenko.github.io/my-project-2025/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,6 +15,7 @@
     "@svgr/webpack": "^8.1.0",
     "classnames": "^2.5.1",
     "framer-motion": "^12.16.0",
+    "gh-pages": "^6.3.0",
     "js-cookie": "^3.0.5",
     "next": "15.2.1",
     "nodemailer": "^6.10.0",
