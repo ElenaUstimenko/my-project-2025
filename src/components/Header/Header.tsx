@@ -53,7 +53,7 @@ export const Header = () => {
     const header = document.getElementById('top');
     if (header) {
       const firstSection = header.querySelector(
-        `.${classes.header_sectionFirst}`
+        `.${classes.header_sectionFirst}`,
       ) as HTMLElement;
       if (firstSection) {
         const observer = new IntersectionObserver(
@@ -64,7 +64,7 @@ export const Header = () => {
             root: null,
             threshold: 0,
             rootMargin: `-${firstSection.offsetHeight}px`,
-          }
+          },
         );
 
         observer.observe(firstSection);
@@ -104,14 +104,14 @@ export const Header = () => {
             </Link>
             <Link
               className={classes.btn_animationLine}
-              href='mailto:ystimenko.e@mail.ru'
+              href='mailto:elena.iartseva64@gmail.com'
             >
-              <span>&nbsp;ystimenko.e@mail.ru &nbsp;</span>
+              <span>&nbsp;elena.iartseva64@gmail.com &nbsp;</span>
               <span
                 aria-hidden='true'
                 className={classes.btn_animationLineHoverText}
               >
-                &nbsp;ystimenko.e@mail.ru &nbsp;
+                &nbsp;elena.iartseva64@gmail.com &nbsp;
               </span>
             </Link>
           </div>
