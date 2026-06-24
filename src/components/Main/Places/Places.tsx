@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
-import { placesList } from '@/utils/constants';
+import { placesList } from '@/utils/constantsPlaces';
 import classes from './Places.module.scss';
 
 export const Places = () => {
@@ -39,9 +39,9 @@ export const Places = () => {
                 className={classes.card_imgBG}
                 src={item.img}
                 alt={item.alt}
-                placeholder='blur'
+                placeholder="blur"
                 fill
-                sizes='(max-width: 768px) 100vw, 440px'
+                sizes="(max-width: 768px) 100vw, 440px"
               />
             </div>
             <div className={classes.card_infoContainer}>
@@ -56,7 +56,7 @@ export const Places = () => {
           <button
             className={`${classes.control_btn} ${classes.less_btn}`}
             onClick={handleShowLess}
-            aria-label='Скрыть карточки'
+            aria-label="Скрыть карточки"
           >
             <span className={classes.btn_arrow_up}></span>
           </button>
@@ -66,7 +66,7 @@ export const Places = () => {
           <button
             className={`${classes.control_btn} ${classes.more_btn}`}
             onClick={handleShowMore}
-            aria-label='Показать больше карточек'
+            aria-label="Показать больше карточек"
           >
             <span className={classes.btn_arrow_down}></span>
           </button>

@@ -23,8 +23,8 @@ export const VideoPlayer = ({
         url={url}
         playing={isModalOpen && isReady}
         controls={true}
-        width='100%'
-        height='100%'
+        width="100%"
+        height="100%"
         light={false}
         onReady={() => setIsReady(true)}
         config={{

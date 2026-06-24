@@ -41,17 +41,18 @@
 }
 
 .matrixColumn::before {
-  content: "밤새도록 춤을 춰, 모두 잠든 새벽까지 내 시간은 빛나고, 너넨 아직도 제자리 이게 랩, 이게 힙합, 이게 방탄의 스웨그 내 하루는 너넨 꿈도 못 꿀 하루 나는 위로, 너넨 아래로, 우린 서로 다른 세상 저 멀리서 짖어대, 넌 그냥 개 짖는 소리 ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  content: '밤새도록 춤을 춰, 모두 잠든 새벽까지 내 시간은 빛나고, 너넨 아직도 제자리 이게 랩, 이게 힙합, 이게 방탄의 스웨그 내 하루는 너넨 꿈도 못 꿀 하루 나는 위로, 너넨 아래로, 우린 서로 다른 세상 저 멀리서 짖어대, 넌 그냥 개 짖는 소리 ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   position: absolute;
   inset: 0;
-  background: linear-gradient(transparent 70%, #000),
-              linear-gradient( 
-                to bottom,
-              #6A70FF 0%,  
-              #565DFF 30%,
-              #3D44E0 60%,
-              #0A12B0 90%  
-              );
+  background:
+    linear-gradient(transparent 70%, #000),
+    linear-gradient(
+      to bottom,
+      #6a70ff 0%,
+      #565dff 30%,
+      #3d44e0 60%,
+      #0a12b0 90%
+    );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -60,7 +61,9 @@
 }
 
 @keyframes fall {
-  to { transform: translateY(100vh); }
+  to {
+    transform: translateY(100vh);
+  }
 }
 
 .firstSection_contentWrapper {

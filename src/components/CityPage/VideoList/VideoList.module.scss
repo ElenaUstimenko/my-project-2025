@@ -1,5 +1,5 @@
-@use "../../../../src/vendor/styles/mixins.scss" as mixins;
-@use "../../../vendor/styles/animation.scss";
+@use '../../../../src/vendor/styles/mixins.scss' as mixins;
+@use '../../../vendor/styles/animation.scss';
 
 .videoList {
   width: 100%;
@@ -84,7 +84,7 @@
   z-index: 3;
 
   &::after {
-    content: "";
+    content: '';
     width: 0;
     height: 0;
     border-top: 12px solid transparent;

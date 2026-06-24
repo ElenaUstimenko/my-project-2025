@@ -4,11 +4,14 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { PhotoList } from '@/components/CityPage/PhotoList';
 import { VideoList } from '@/components/CityPage/VideoList';
-import { cityList } from '@/utils/constants';
-import { useParams } from 'next/navigation';
+import type { City } from './CityPage.props';
 import classes from '@/components/CityPage/CityPage.module.scss';
 
-export const CityPage = () => {
+interface CityPageProps {
+  city: City;
+}
+
+export const CityPage = ({ city }: CityPageProps) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -32,46 +35,16 @@ export const CityPage = () => {
     },
   };
 
-  const params = useParams();
-  const cityPath = params.city as string;
-
-  const cityData = cityList.find((item) => item.path === cityPath);
-
-  if (!cityData) {
-    return (
-      <section className={classes.cityPage}>
-        <Header />
-        <motion.div
-          className={classes.cityAbout}
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ amount: 0.1 }}
-          variants={containerVariants}
-        >
-          <motion.h2
-            className={classes.cityAbout_title}
-            variants={itemVariants}
-            whileHover={{ x: -6 }}
-            transition={{ type: 'tween', duration: 0.2 }}
-          >
-            Город не найден
-          </motion.h2>
-        </motion.div>
-        <Footer />
-      </section>
-    );
-  }
-
-  const hasImages = cityData.images && cityData.images.length > 0;
-  const hasVideos = cityData.video && cityData.video.length > 0;
+  const hasImages = city.images.length > 0;
+  const hasVideos = city.video.length > 0;
 
   return (
     <section className={classes.cityPage}>
       <Header />
       <motion.div
         className={classes.cityAbout}
-        initial='hidden'
-        whileInView='visible'
+        initial="hidden"
+        whileInView="visible"
         viewport={{ amount: 0.1 }}
         variants={containerVariants}
       >
@@ -81,7 +54,7 @@ export const CityPage = () => {
           whileHover={{ x: -6 }}
           transition={{ type: 'tween', duration: 0.2 }}
         >
-          {cityData.name}
+          {city.name}
         </motion.h2>
         <motion.p
           className={classes.cityAbout_text}
@@ -89,7 +62,7 @@ export const CityPage = () => {
           whileHover={{ x: -6 }}
           transition={{ type: 'tween', duration: 0.2 }}
         >
-          {cityData.text0}
+          {city.text0}
         </motion.p>
         <motion.p
           className={classes.cityAbout_text}
@@ -97,7 +70,7 @@ export const CityPage = () => {
           whileHover={{ x: -6 }}
           transition={{ type: 'tween', duration: 0.2 }}
         >
-          {cityData.text1}
+          {city.text1}
         </motion.p>
         <motion.p
           className={classes.cityAbout_text}
@@ -105,7 +78,7 @@ export const CityPage = () => {
           whileHover={{ x: -6 }}
           transition={{ type: 'tween', duration: 0.2 }}
         >
-          {cityData.text2}
+          {city.text2}
         </motion.p>
       </motion.div>
       {hasImages && (
@@ -113,7 +86,7 @@ export const CityPage = () => {
           <p className={`${classes.cityAbout_text} ${classes.text_shine}`}>
             кликни по фото, чтобы посмотреть подробнее
           </p>
-          <PhotoList city={cityData} />
+          <PhotoList city={city} />
         </>
       )}
       {hasVideos && (
@@ -121,7 +94,7 @@ export const CityPage = () => {
           <p className={`${classes.cityAbout_text} ${classes.text_shine}`}>
             кликни по видео, чтобы начать просмотр
           </p>
-          <VideoList city={cityData} />
+          <VideoList city={city} />
         </>
       )}
       <Footer />

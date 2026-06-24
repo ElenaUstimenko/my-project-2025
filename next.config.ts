@@ -1,6 +1,27 @@
-// @ts-nocheck
 import type { NextConfig } from 'next';
 import path from 'path';
+
+type WebpackRule = {
+  test?: {
+    test?: (value: string) => boolean;
+  };
+  issuer?: unknown;
+  resourceQuery?: RegExp | { not?: unknown[] };
+  exclude?: RegExp;
+  [key: string]: unknown;
+};
+
+const getResourceQueryNot = (resourceQuery: WebpackRule['resourceQuery']) => {
+  if (
+    resourceQuery &&
+    !(resourceQuery instanceof RegExp) &&
+    Array.isArray(resourceQuery.not)
+  ) {
+    return resourceQuery.not;
+  }
+
+  return [];
+};
 
 const nextConfig: NextConfig = {
   output: 'standalone',
@@ -11,7 +32,7 @@ const nextConfig: NextConfig = {
     imageSizes: [100, 50, 25],
   },
 
-  webpack(config, { isServer }) {
+  webpack(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, 'src'),
@@ -23,8 +44,8 @@ const nextConfig: NextConfig = {
       '@vendor': path.resolve(__dirname, 'src/vendor'),
     };
 
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.('.svg')
+    const fileLoaderRule = config.module.rules.find((rule: WebpackRule) =>
+      rule.test?.test?.('.svg'),
     );
     if (fileLoaderRule) {
       config.module.rules.push({
@@ -36,7 +57,7 @@ const nextConfig: NextConfig = {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
         resourceQuery: {
-          not: [...(fileLoaderRule.resourceQuery?.not || []), /url/],
+          not: [...getResourceQueryNot(fileLoaderRule.resourceQuery), /url/],
         },
         use: ['@svgr/webpack'],
       });

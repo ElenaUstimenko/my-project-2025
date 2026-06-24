@@ -30,15 +30,15 @@ export const Cookie = () => {
           сбора статистики
         </p>
         <a
-          type='button'
           className={classes.btnLink}
-          href='/privacy-policy'
-          target='_blank'
+          href="/legal/privacy-policy"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Узнать больше
         </a>
         <button
-          type='button'
+          type="button"
           className={classes.btnAccept}
           onClick={acceptCookie}
         >

@@ -25,10 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='ru' className={onest.className}>
+    <html lang="ru" className={onest.className}>
       <head>
         {/* Yandex.Metrika */}
-        <Script id='yandex-metrika' strategy='afterInteractive'>
+        <Script id="yandex-metrika" strategy="afterInteractive">
           {`
             (function(m,e,t,r,i,k,a){
               m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -47,9 +47,9 @@ export default function RootLayout({
         <noscript>
           <div>
             <img
-              src='https://mc.yandex.ru/watch/103541965'
+              src="https://mc.yandex.ru/watch/103541965"
               style={{ position: 'absolute', left: '-9999px' }}
-              alt=''
+              alt=""
             />
           </div>
         </noscript>

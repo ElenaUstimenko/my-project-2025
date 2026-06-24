@@ -15,7 +15,6 @@ export interface CityVideo {
 export interface City {
   id: number;
   path: string;
-  link: string;
   name: string;
   text0: string;
   text1?: string;

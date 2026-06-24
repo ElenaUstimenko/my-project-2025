@@ -1,13 +1,56 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import classes from './Header.module.scss';
 import Menu from '@images/btn/burger_menu_white.svg';
 import Close from '@images/btn/burger_close_white.svg';
 import logo from '@images/logo/logo_blue.webp';
 import { KETA_URL } from '@utils/constants';
 import { WOWPASS_URL } from '@utils/constants';
+
+interface HeaderLink {
+  href: string;
+  label: string;
+  isExternal?: boolean;
+}
+
+interface AnimatedHeaderLinkProps extends HeaderLink {
+  className: string;
+  onClick?: () => void;
+}
+
+const cityLinks: HeaderLink[] = [
+  { href: '/cities/seoul', label: 'Сеул' },
+  { href: '/cities/busan', label: 'Пусан' },
+  { href: '/cities/jeju', label: 'Чеджу' },
+];
+
+const externalLinks: HeaderLink[] = [
+  { href: KETA_URL, label: 'К-ЕТА ', isExternal: true },
+  { href: WOWPASS_URL, label: 'WOWPASS', isExternal: true },
+];
+
+const AnimatedHeaderLink = ({
+  href,
+  label,
+  isExternal,
+  className,
+  onClick,
+}: AnimatedHeaderLinkProps) => (
+  <Link
+    className={className}
+    href={href}
+    target="_blank"
+    rel={isExternal ? 'noopener noreferrer' : undefined}
+    onClick={onClick}
+  >
+    <span>&nbsp;{label}&nbsp;</span>
+    <span aria-hidden="true" className={classes.btn_animationLineHoverText}>
+      &nbsp;{label}&nbsp;
+    </span>
+  </Link>
+);
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,21 +60,24 @@ export const Header = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
-  };
+  }, []);
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape' && isMenuOpen) {
-      closeMenu();
-    }
-  };
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    },
+    [closeMenu, isMenuOpen],
+  );
 
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     if (window.innerWidth > 1024 && isMenuOpen) {
       closeMenu();
     }
-  };
+  }, [closeMenu, isMenuOpen]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
@@ -40,7 +86,7 @@ export const Header = () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('resize', handleResize);
     };
-  }, [isMenuOpen]);
+  }, [handleKeyDown, handleResize]);
 
   const handleLinkClick = () => {
     if (isMenuOpen) {
@@ -77,14 +123,14 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className={classes.header} id='top'>
+    <header className={classes.header} id="top">
       <div className={classes.header_sectionFirst}>
         <div className={classes.header_containerForLogo}>
-          <Link href='/'>
+          <Link href="/">
             <Image
               src={logo}
               className={classes.header_logo}
-              alt='логотип компании с самолётом облетающим земной шар'
+              alt="логотип компании с самолётом облетающим земной шар"
             />
           </Link>
           <p className={classes.header_titleText}>
@@ -93,10 +139,10 @@ export const Header = () => {
         </div>
         <div className={classes.header_contactsWrapper}>
           <div className={classes.header_containerForLink}>
-            <Link className={classes.btn_animationLine} href='tel:89628786400'>
+            <Link className={classes.btn_animationLine} href="tel:89628786400">
               <span>&nbsp;8 962 878 64 00 &nbsp;</span>
               <span
-                aria-hidden='true'
+                aria-hidden="true"
                 className={classes.btn_animationLineHoverText}
               >
                 &nbsp;8 962 878 64 00 &nbsp;
@@ -104,11 +150,11 @@ export const Header = () => {
             </Link>
             <Link
               className={classes.btn_animationLine}
-              href='mailto:elena.iartseva64@gmail.com'
+              href="mailto:elena.iartseva64@gmail.com"
             >
               <span>&nbsp;elena.iartseva64@gmail.com &nbsp;</span>
               <span
-                aria-hidden='true'
+                aria-hidden="true"
                 className={classes.btn_animationLineHoverText}
               >
                 &nbsp;elena.iartseva64@gmail.com &nbsp;
@@ -131,80 +177,19 @@ export const Header = () => {
             <button
               className={`${classes.burger} ${classes.burgerFixed}`}
               onClick={closeMenu}
+              aria-label="Закрыть меню"
             >
               <Close className={classes.header_menuOpen} />
             </button>
             <div className={classes.btn_animationLine}></div>
-            <Link
-              className={`${classes.btn_animationLine} ${classes.header_linkOpen}`}
-              href='/cities/seoul'
-              target='_blanck'
-              onClick={handleLinkClick}
-            >
-              <span>&nbsp;Сеул&nbsp;</span>
-              <span
-                aria-hidden='true'
-                className={classes.btn_animationLineHoverText}
-              >
-                &nbsp;Сеул&nbsp;
-              </span>
-            </Link>
-            <Link
-              className={`${classes.btn_animationLine} ${classes.header_linkOpen}`}
-              href='/cities/busan'
-              target='_blanck'
-              onClick={handleLinkClick}
-            >
-              <span>&nbsp;Пусан&nbsp;</span>
-              <span
-                aria-hidden='true'
-                className={classes.btn_animationLineHoverText}
-              >
-                &nbsp;Пусан&nbsp;
-              </span>
-            </Link>
-            <Link
-              className={`${classes.btn_animationLine} ${classes.header_linkOpen}`}
-              href='/cities/jeju'
-              target='_blanck'
-              onClick={handleLinkClick}
-            >
-              <span>&nbsp;Чеджу&nbsp;</span>
-              <span
-                aria-hidden='true'
-                className={classes.btn_animationLineHoverText}
-              >
-                &nbsp;Чеджу&nbsp;
-              </span>
-            </Link>
-            <Link
-              href={KETA_URL}
-              target='_blanck'
-              onClick={handleLinkClick}
-              className={`${classes.btn_animationLine} ${classes.header_linkOpen}`}
-            >
-              <span>&nbsp;К-ЕТА &nbsp;</span>
-              <span
-                aria-hidden='true'
-                className={classes.btn_animationLineHoverText}
-              >
-                &nbsp;К-ЕТА &nbsp;
-              </span>
-            </Link>
-            <Link
-              href={WOWPASS_URL}
-              target='_blanck'
-              onClick={handleLinkClick}
-              className={`${classes.btn_animationLine} ${classes.header_linkOpen}`}
-            >
-              <span>&nbsp;WOWPASS&nbsp;</span>
-              <span
-                aria-hidden='true'
-                className={classes.btn_animationLineHoverText}
-              >
-                &nbsp;WOWPASS&nbsp;
-              </span>
-            </Link>
+            {[...cityLinks, ...externalLinks].map((link) => (
+              <AnimatedHeaderLink
+                key={link.href}
+                {...link}
+                className={`${classes.btn_animationLine} ${classes.header_linkOpen}`}
+                onClick={handleLinkClick}
+              />
+            ))}
           </nav>
         ) : (
           <nav
@@ -213,48 +198,14 @@ export const Header = () => {
             }`}
           >
             <div className={classes.header_linkOpenMenuWrapper}>
-              <Link
-                className={`${classes.header_link} ${classes.btn_animationLine}`}
-                href='/cities/seoul'
-                target='_blanck'
-                onClick={handleLinkClick}
-              >
-                <span>&nbsp;Сеул&nbsp;</span>
-                <span
-                  aria-hidden='true'
-                  className={classes.btn_animationLineHoverText}
-                >
-                  &nbsp;Сеул&nbsp;
-                </span>
-              </Link>
-              <Link
-                className={`${classes.header_link} ${classes.btn_animationLine}`}
-                href='/cities/busan'
-                target='_blanck'
-                onClick={handleLinkClick}
-              >
-                <span>&nbsp;Пусан&nbsp;</span>
-                <span
-                  aria-hidden='true'
-                  className={classes.btn_animationLineHoverText}
-                >
-                  &nbsp;Пусан&nbsp;
-                </span>
-              </Link>
-              <Link
-                className={`${classes.header_link} ${classes.btn_animationLine}`}
-                href='/cities/jeju'
-                target='_blanck'
-                onClick={handleLinkClick}
-              >
-                <span>&nbsp;Чеджу&nbsp;</span>
-                <span
-                  aria-hidden='true'
-                  className={classes.btn_animationLineHoverText}
-                >
-                  &nbsp;Чеджу&nbsp;
-                </span>
-              </Link>
+              {cityLinks.map((link) => (
+                <AnimatedHeaderLink
+                  key={link.href}
+                  {...link}
+                  className={`${classes.header_link} ${classes.btn_animationLine}`}
+                  onClick={handleLinkClick}
+                />
+              ))}
             </div>
             {/* fixed part of header */}
             {isFixed ? (
@@ -263,40 +214,21 @@ export const Header = () => {
                   <Image
                     src={logo}
                     className={classes.header_logo}
-                    alt='лого'
+                    alt="лого"
                   />
                 </div>
-                <Link
-                  href={KETA_URL}
-                  target='_blanck'
-                  onClick={handleLinkClick}
-                  className={`${classes.header_link} ${classes.header_linkFixed} ${classes.btn_animationLine}`}
-                >
-                  <span>&nbsp;К-ЕТА &nbsp;</span>
-                  <span
-                    aria-hidden='true'
-                    className={classes.btn_animationLineHoverText}
-                  >
-                    &nbsp;К-ЕТА &nbsp;
-                  </span>
-                </Link>
-                <Link
-                  href={WOWPASS_URL}
-                  target='_blanck'
-                  onClick={handleLinkClick}
-                  className={`${classes.header_link} ${classes.header_linkFixed} ${classes.btn_animationLine}`}
-                >
-                  <span>&nbsp;WOWPASS&nbsp;</span>
-                  <span
-                    aria-hidden='true'
-                    className={classes.btn_animationLineHoverText}
-                  >
-                    &nbsp;WOWPASS&nbsp;
-                  </span>
-                </Link>
+                {externalLinks.map((link) => (
+                  <AnimatedHeaderLink
+                    key={link.href}
+                    {...link}
+                    className={`${classes.header_link} ${classes.header_linkFixed} ${classes.btn_animationLine}`}
+                    onClick={handleLinkClick}
+                  />
+                ))}
                 <button
                   className={`${classes.burger} ${classes.burgerFixed}`}
                   onClick={toggleMenu}
+                  aria-label="Открыть меню"
                 >
                   {isMenuOpen ? (
                     ''
@@ -309,40 +241,24 @@ export const Header = () => {
               </div>
             ) : (
               <div className={classes.header_containerForlinkFixed}>
-                <Link
-                  href={KETA_URL}
-                  target='_blanck'
-                  onClick={handleLinkClick}
-                  className={`${classes.header_link} ${classes.btn_animationLine}`}
-                >
-                  <span>&nbsp;К-ЕТА &nbsp;</span>
-                  <span
-                    aria-hidden='true'
-                    className={classes.btn_animationLineHoverText}
-                  >
-                    &nbsp;К-ЕТА &nbsp;
-                  </span>
-                </Link>
-                <Link
-                  href={WOWPASS_URL}
-                  target='_blanck'
-                  onClick={handleLinkClick}
-                  className={`${classes.header_link} ${classes.btn_animationLine}`}
-                >
-                  <span>&nbsp;WOWPASS&nbsp;</span>
-                  <span
-                    aria-hidden='true'
-                    className={classes.btn_animationLineHoverText}
-                  >
-                    &nbsp;WOWPASS&nbsp;
-                  </span>
-                </Link>
+                {externalLinks.map((link) => (
+                  <AnimatedHeaderLink
+                    key={link.href}
+                    {...link}
+                    className={`${classes.header_link} ${classes.btn_animationLine}`}
+                    onClick={handleLinkClick}
+                  />
+                ))}
               </div>
             )}
           </nav>
         )}
       </div>
-      <button className={classes.burger} onClick={toggleMenu}>
+      <button
+        className={classes.burger}
+        onClick={toggleMenu}
+        aria-label="Открыть меню"
+      >
         {isMenuOpen ? '' : <Menu className={classes.header_menu} />}
       </button>
       {isMenuOpen && <div className={classes.overlay} onClick={closeMenu} />}

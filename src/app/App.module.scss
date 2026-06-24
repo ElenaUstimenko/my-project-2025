@@ -11,7 +11,15 @@
   font-family: var(--font-onest);
   color: var(--text-color-dark-blue);
   transition: all var(--transition-duration) var(--transition-timing-fn);
-  background: radial-gradient(80% 16% at 50% 0, #263449 0, rgba(30, 48, 96, 0) 100%), radial-gradient(circle farthest-corner at 50% 100%, #1f2229 0, transparent 40%, transparent 100%), #151515;
+  background:
+    radial-gradient(80% 16% at 50% 0, #263449 0, rgba(30, 48, 96, 0) 100%),
+    radial-gradient(
+      circle farthest-corner at 50% 100%,
+      #1f2229 0,
+      transparent 40%,
+      transparent 100%
+    ),
+    #151515;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

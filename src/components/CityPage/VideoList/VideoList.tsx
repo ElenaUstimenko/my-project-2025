@@ -52,8 +52,8 @@ export const VideoList: React.FC<VideoListProps> = ({ city }) => {
     <>
       <div className={classes.videoList}>
         <motion.div
-          initial='hidden'
-          whileInView='visible'
+          initial="hidden"
+          whileInView="visible"
           viewport={{ amount: 0.1 }}
           variants={containerVariants}
           className={classes.videoList_container}
@@ -70,7 +70,7 @@ export const VideoList: React.FC<VideoListProps> = ({ city }) => {
                 <div className={classes.videoPoster}>
                   <Image
                     src={video.img}
-                    alt='Заглушка видео'
+                    alt="Заглушка видео"
                     fill
                     style={{ objectFit: 'cover' }}
                     className={classes.posterImage}
@@ -78,18 +78,19 @@ export const VideoList: React.FC<VideoListProps> = ({ city }) => {
                 </div>
                 <video
                   className={classes.videoList_video}
-                  preload='metadata'
+                  preload="metadata"
                   poster={video.img.src}
                 >
                   <source
                     src={typeof video.src === 'string' ? video.src : video.src}
-                    type='video/webm'
+                    type="video/webm"
                   />
                   Упс, похоже Ваш браузер не поддерживает видео
                 </video>
 
                 <button
                   className={classes.btn_play}
+                  aria-label={`Открыть видео ${video.id}`}
                   onClick={() =>
                     handleVideoClick(
                       typeof video.src === 'string' ? video.src : video.src,

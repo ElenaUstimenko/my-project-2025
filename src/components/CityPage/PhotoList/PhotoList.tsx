@@ -56,8 +56,8 @@ export const PhotoList: React.FC<PhotoListProps> = ({ city }) => {
     <>
       <div className={classes.photoList}>
         <motion.div
-          initial='hidden'
-          animate='visible'
+          initial="hidden"
+          animate="visible"
           variants={containerVariants}
           className={classes.photoList_container}
         >

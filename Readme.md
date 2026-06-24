@@ -14,6 +14,42 @@
 
 ✔️ CSS Modules
 
+✔️ Jest
+
+✔️ React Testing Library
+
+✔️ jest-axe
+
+---
+
+## Tests:
+
+В проекте добавлены базовые проверки качества кода и тесты:
+
+✔️ `npm run typecheck` — проверка TypeScript
+
+✔️ `npm run lint` — проверка ESLint/Next.js
+
+✔️ `npm run test` — запуск Jest-тестов
+
+✔️ `npm run build` — production-сборка Next.js
+
+✔️ `npm run check` — общий сценарий: typecheck + lint + test + build
+
+### Что покрыто тестами:
+
+✔️ Проверка внешних ссылок и URL-констант
+
+✔️ Проверка маршрутов городов `/cities/...`
+
+✔️ Проверка данных городов, фото, видео и карточек мест
+
+✔️ Component-тесты Header, Footer и Cookie через React Testing Library
+
+✔️ Проверка `href`, `target`, `rel` у реальных ссылок
+
+✔️ Accessibility-тесты модалок и кнопок через jest-axe
+
 ---
 
 ## Link:

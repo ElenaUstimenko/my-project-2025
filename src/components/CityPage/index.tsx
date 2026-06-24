@@ -1,1 +1,1 @@
-export * from "./CityPage";
+export * from './CityPage';

@@ -8,17 +8,17 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={classes.footer} id='contacts'>
+    <footer className={classes.footer} id="contacts">
       <div className={classes.footer_wrapper}>
         <div className={classes.footer_firstContainer}>
           <div className={classes.footer_firstContainerWrapper}>
             <div className={classes.footer_firstContainerLeft}>
               <div className={classes.footer_logoWrapper}>
-                <Link href='/'>
+                <Link href="/">
                   <Image
                     src={logo}
                     className={classes.footer_logo}
-                    alt='логотип компании с самолётом облетающим земной шар'
+                    alt="логотип компании с самолётом облетающим земной шар"
                   />
                 </Link>
                 <p className={classes.footer_titleText}>
@@ -27,23 +27,27 @@ export const Footer = () => {
               </div>
             </div>
             <div className={classes.footer_linkUpWrapper}>
-              <Link className={classes.footer_linkUp} href='#top'>
+              <Link className={classes.footer_linkUp} href="#top">
                 Наверх
               </Link>
             </div>
             <div className={classes.footer_firstContainerRight}>
               <div className={classes.footer_phonesWrapper}>
                 <div className={classes.footer_phones}>
-                  <Link href='https://t.me/elena_6464' target='_blanck'>
+                  <Link
+                    href="https://t.me/elena_6464"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Telegram className={classes.footer_logoSocialLink} />
                   </Link>
                   <Link
                     className={classes.btn_animationLine}
-                    href='tel:89628786400'
+                    href="tel:89628786400"
                   >
                     <span>&nbsp;8 962 878 64 00&nbsp;</span>
                     <span
-                      aria-hidden='true'
+                      aria-hidden="true"
                       className={classes.btn_animationLineHoverText}
                     >
                       &nbsp;8 962 878 64 00&nbsp;
@@ -51,11 +55,11 @@ export const Footer = () => {
                   </Link>
                   <Link
                     className={classes.btn_animationLine}
-                    href='mailto:elena.iartseva64@gmail.com'
+                    href="mailto:elena.iartseva64@gmail.com"
                   >
                     <span>&nbsp;elena.iartseva64@gmail.com&nbsp;</span>
                     <span
-                      aria-hidden='true'
+                      aria-hidden="true"
                       className={classes.btn_animationLineHoverText}
                     >
                       &nbsp;elena.iartseva64@gmail.com&nbsp;

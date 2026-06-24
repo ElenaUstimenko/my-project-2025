@@ -7,15 +7,14 @@ import { Footer } from '@/components/Footer';
 import { Cookie } from '@components/Cookie';
 
 export const Main = () => {
-
-    return (
-        <main className={classes.main}>
-            <Header />
-            <FirstSection />
-            <About />
-            <Places />
-            <Footer />
-            <Cookie />
-        </main>
-    );
+  return (
+    <main className={classes.main}>
+      <Header />
+      <FirstSection />
+      <About />
+      <Places />
+      <Footer />
+      <Cookie />
+    </main>
+  );
 };

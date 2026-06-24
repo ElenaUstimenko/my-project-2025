@@ -32,11 +32,16 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <div className={classes.overlay} onClick={handleOverlayClick}>
-      <div className={classes.modal}>
+      <div
+        className={classes.modal}
+        role="dialog"
+        aria-label="Модальное окно"
+        aria-modal="true"
+      >
         <button
           className={classes.closeButton}
           onClick={onClose}
-          aria-label='Закрыть'
+          aria-label="Закрыть"
         >
           ×
         </button>
