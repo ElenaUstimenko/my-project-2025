@@ -1,15 +1,13 @@
-import { StaticImageData } from 'next/image';
-
 export interface CityImage {
   id: number;
-  src: StaticImageData;
+  src: string;
   alt: string;
 }
 
 export interface CityVideo {
   id: number;
   src: string;
-  img: StaticImageData;
+  img: string;
 }
 
 export interface City {

@@ -10,11 +10,7 @@ describe('VideoList accessibility', () => {
             {
               id: 1,
               src: '/video/test.webm',
-              img: {
-                src: '/images/test-poster.webp',
-                width: 100,
-                height: 100,
-              },
+              img: '/images/test-poster.webp',
             },
           ],
         }}

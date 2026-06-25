@@ -60,7 +60,7 @@ export const VideoList: React.FC<VideoListProps> = ({ city }) => {
                 <video
                   className={classes.videoList_video}
                   preload="metadata"
-                  poster={video.img.src}
+                  poster={video.img}
                 >
                   <source src={video.src} type="video/webm" />
                   Упс, похоже Ваш браузер не поддерживает видео

@@ -39,7 +39,6 @@ export const Places = () => {
                 className={classes.card_imgBG}
                 src={item.img}
                 alt={item.alt}
-                placeholder="blur"
                 fill
                 sizes="(max-width: 768px) 100vw, 440px"
               />

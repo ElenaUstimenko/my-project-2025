@@ -1,10 +1,8 @@
-import { StaticImageData } from 'next/image';
-
 export interface ImageModalProps {
   isOpen: boolean;
   onClose: () => void;
   image: {
-    src: StaticImageData;
+    src: string;
     alt: string;
   } | null;
 }
