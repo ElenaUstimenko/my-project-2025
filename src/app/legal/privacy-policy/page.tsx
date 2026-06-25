@@ -1,4 +1,4 @@
-import { PolicyPage } from '@/components/LegalDocuments/PrivacyPolicy/PrivacyPolicyPage';
+import { PolicyPage } from '@components/LegalDocuments/PrivacyPolicy/PrivacyPolicyPage';
 import classes from '@app/App.module.scss';
 
 export default function Policy() {

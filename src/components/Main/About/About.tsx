@@ -1,45 +1,26 @@
 'use client';
 import { motion } from 'framer-motion';
+import {
+  pageContainerVariants,
+  slideUpItemVariants,
+} from '@utils/motionVariants';
 import classes from './About.module.scss';
 
 export const About = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.4,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 100, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-      },
-    },
-  };
-
   return (
     <motion.section
       className={classes.about}
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.1 }}
-      variants={containerVariants}
+      variants={pageContainerVariants}
     >
       <h2 className={`${classes.about_title} ${classes.text_shine}`}>
         Страна утренней свежести
       </h2>
       <motion.p
         className={classes.about_text}
-        variants={itemVariants}
+        variants={slideUpItemVariants}
         whileHover={{ x: -6 }}
         transition={{ type: 'tween', duration: 0.2 }}
       >
@@ -49,7 +30,7 @@ export const About = () => {
       </motion.p>
       <motion.p
         className={classes.about_text}
-        variants={itemVariants}
+        variants={slideUpItemVariants}
         whileHover={{ x: -6 }}
         transition={{ type: 'tween', duration: 0.2 }}
       >
@@ -59,7 +40,7 @@ export const About = () => {
       </motion.p>
       <motion.p
         className={classes.about_text}
-        variants={itemVariants}
+        variants={slideUpItemVariants}
         whileHover={{ x: -6 }}
         transition={{ type: 'tween', duration: 0.2 }}
       >
@@ -71,7 +52,7 @@ export const About = () => {
       </motion.p>
       <motion.p
         className={classes.about_text}
-        variants={itemVariants}
+        variants={slideUpItemVariants}
         whileHover={{ x: -6 }}
         transition={{ type: 'tween', duration: 0.2 }}
       >
@@ -83,7 +64,7 @@ export const About = () => {
       </motion.p>
       <motion.p
         className={classes.about_text}
-        variants={itemVariants}
+        variants={slideUpItemVariants}
         whileHover={{ x: -6 }}
         transition={{ type: 'tween', duration: 0.2 }}
       >

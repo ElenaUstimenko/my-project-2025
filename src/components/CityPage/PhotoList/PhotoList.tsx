@@ -5,31 +5,11 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { PhotoListProps } from '../CityPage.props';
 import { ImageModal } from '../../Modal/ImageModal/ImageModal';
+import {
+  compactContainerVariants,
+  photoItemVariants,
+} from '@utils/motionVariants';
 import classes from './PhotoList.module.scss';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 12,
-    },
-  },
-};
 
 export const PhotoList: React.FC<PhotoListProps> = ({ city }) => {
   const [selectedImage, setSelectedImage] = useState<{
@@ -58,19 +38,21 @@ export const PhotoList: React.FC<PhotoListProps> = ({ city }) => {
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={containerVariants}
+          variants={compactContainerVariants}
           className={classes.photoList_container}
         >
           {city.images.map((image) => (
-            <motion.div
+            <motion.button
               key={image.id}
-              variants={itemVariants}
+              type="button"
+              variants={photoItemVariants}
               whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.2 },
               }}
               className={classes.photoList_card}
               onClick={() => handleImageClick(image)}
+              aria-label={`Открыть фото: ${image.alt}`}
             >
               <div className={classes.photoList_imageContainer}>
                 <Image
@@ -81,7 +63,7 @@ export const PhotoList: React.FC<PhotoListProps> = ({ city }) => {
                   className={classes.photoList_image}
                 />
               </div>
-            </motion.div>
+            </motion.button>
           ))}
         </motion.div>
       </div>

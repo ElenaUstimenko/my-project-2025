@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import '@/vendor/styles/variables.scss';
-import '@/vendor/styles/reset.scss';
-import '@/vendor/styles/global.scss';
+import '@vendor/styles/variables.scss';
+import '@vendor/styles/reset.scss';
+import '@vendor/styles/global.scss';
 import { onest } from './fonts';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Путешествие в Корею',
-  description: '',
+  description: 'Сайт с краткой информацией о путешествии в Республику Корея',
   keywords:
     'Республика Корея, Южная Корея, Корея, путешествие в Южную Корею, путешествие в Респубилку Корея, путешествие в Корею',
   openGraph: {

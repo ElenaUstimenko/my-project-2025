@@ -1,40 +1,21 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { PhotoList } from '@/components/CityPage/PhotoList';
-import { VideoList } from '@/components/CityPage/VideoList';
+import { Header } from '@components/Header';
+import { Footer } from '@components/Footer';
+import { PhotoList } from '@components/CityPage/PhotoList';
+import { VideoList } from '@components/CityPage/VideoList';
 import type { City } from './CityPage.props';
-import classes from '@/components/CityPage/CityPage.module.scss';
+import {
+  pageContainerVariants,
+  slideUpItemVariants,
+} from '@utils/motionVariants';
+import classes from '@components/CityPage/CityPage.module.scss';
 
 interface CityPageProps {
   city: City;
 }
 
 export const CityPage = ({ city }: CityPageProps) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.4,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 100, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-      },
-    },
-  };
-
   const hasImages = city.images.length > 0;
   const hasVideos = city.video.length > 0;
 
@@ -46,11 +27,11 @@ export const CityPage = ({ city }: CityPageProps) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.1 }}
-        variants={containerVariants}
+        variants={pageContainerVariants}
       >
         <motion.h2
           className={classes.cityAbout_title}
-          variants={itemVariants}
+          variants={slideUpItemVariants}
           whileHover={{ x: -6 }}
           transition={{ type: 'tween', duration: 0.2 }}
         >
@@ -58,7 +39,7 @@ export const CityPage = ({ city }: CityPageProps) => {
         </motion.h2>
         <motion.p
           className={classes.cityAbout_text}
-          variants={itemVariants}
+          variants={slideUpItemVariants}
           whileHover={{ x: -6 }}
           transition={{ type: 'tween', duration: 0.2 }}
         >
@@ -66,7 +47,7 @@ export const CityPage = ({ city }: CityPageProps) => {
         </motion.p>
         <motion.p
           className={classes.cityAbout_text}
-          variants={itemVariants}
+          variants={slideUpItemVariants}
           whileHover={{ x: -6 }}
           transition={{ type: 'tween', duration: 0.2 }}
         >
@@ -74,7 +55,7 @@ export const CityPage = ({ city }: CityPageProps) => {
         </motion.p>
         <motion.p
           className={classes.cityAbout_text}
-          variants={itemVariants}
+          variants={slideUpItemVariants}
           whileHover={{ x: -6 }}
           transition={{ type: 'tween', duration: 0.2 }}
         >

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { VideoList } from './VideoList';
+import { VideoList } from '../VideoList';
 
 describe('VideoList accessibility', () => {
   it('renders named play buttons for videos', () => {

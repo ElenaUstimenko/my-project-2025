@@ -2,33 +2,14 @@
 import { VideoListProps } from '../CityPage.props';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Modal } from '@/components/Modal/Modal';
-import { VideoPlayer } from '@/components/VideoPlayer/VideoPlayer';
+import { Modal } from '@components/Modal/Modal';
+import { VideoPlayer } from '@components/VideoPlayer/VideoPlayer';
 import Image from 'next/image';
+import {
+  compactContainerVariants,
+  videoItemVariants,
+} from '@utils/motionVariants';
 import classes from './VideoList.module.scss';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { x: 100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-    },
-  },
-};
 
 export const VideoList: React.FC<VideoListProps> = ({ city }) => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
@@ -55,13 +36,13 @@ export const VideoList: React.FC<VideoListProps> = ({ city }) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ amount: 0.1 }}
-          variants={containerVariants}
+          variants={compactContainerVariants}
           className={classes.videoList_container}
         >
           {city.video.map((video) => (
             <motion.div
               key={video.id}
-              variants={itemVariants}
+              variants={videoItemVariants}
               whileHover={{ x: -6, scale: 1.02 }}
               transition={{ type: 'tween', duration: 0.2 }}
               className={classes.videoList_card}
@@ -81,21 +62,15 @@ export const VideoList: React.FC<VideoListProps> = ({ city }) => {
                   preload="metadata"
                   poster={video.img.src}
                 >
-                  <source
-                    src={typeof video.src === 'string' ? video.src : video.src}
-                    type="video/webm"
-                  />
+                  <source src={video.src} type="video/webm" />
                   Упс, похоже Ваш браузер не поддерживает видео
                 </video>
 
                 <button
+                  type="button"
                   className={classes.btn_play}
                   aria-label={`Открыть видео ${video.id}`}
-                  onClick={() =>
-                    handleVideoClick(
-                      typeof video.src === 'string' ? video.src : video.src,
-                    )
-                  }
+                  onClick={() => handleVideoClick(video.src)}
                 ></button>
               </div>
             </motion.div>

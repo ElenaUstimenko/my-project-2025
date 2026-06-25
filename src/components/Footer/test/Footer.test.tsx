@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react';
 import { render, screen } from '@testing-library/react';
-import { Footer } from './Footer';
+import { Footer } from '../Footer';
 
 jest.mock('@images/icons/telegram.svg', () => ({
   __esModule: true,

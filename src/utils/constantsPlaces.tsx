@@ -13,6 +13,7 @@ import SeoulImage12 from '@images/cities/seoul/seoul12.webp';
 import SeoulImage13 from '@images/cities/seoul/seoul13.webp';
 import SeoulImage14 from '@images/cities/seoul/seoul14.webp';
 import SeoulImage15 from '@images/cities/seoul/seoul15.webp';
+import type { StaticImageData } from 'next/image';
 import JejuImage1 from '@images/cities/jeju/jeju1.webp';
 import JejuImage2 from '@images/cities/jeju/jeju2.webp';
 import JejuImage3 from '@images/cities/jeju/jeju3.webp';
@@ -24,6 +25,13 @@ import BusanImage5 from '@images/cities/busan/busan5.webp';
 import BusanImage6 from '@images/cities/busan/busan6.webp';
 import BusanImage7 from '@images/cities/busan/busan7.webp';
 import BusanImage8 from '@images/cities/busan/busan8.webp';
+
+export interface Place {
+  id: number;
+  img: StaticImageData;
+  alt: string;
+  text: string;
+}
 
 export const placesList = [
   {
@@ -182,4 +190,4 @@ export const placesList = [
     alt: 'бамбуковый лес',
     text: 'Лес Ахопсан (아홉산숲, или лес девяти гор ) -  бамбуковый лес в Пусане. Занимает площадь примерно 520 000 кв. м. и имеет несчётное количество бамбуковых деревьев разных видов',
   },
-];
+] satisfies Place[];

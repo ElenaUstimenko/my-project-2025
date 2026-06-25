@@ -104,6 +104,7 @@ import JejuVideo4Img from '@video/img_for_video/jeju/jeju4.webp';
 import JejuVideo5Img from '@video/img_for_video/jeju/jeju5.webp';
 import JejuVideo6Img from '@video/img_for_video/jeju/jeju6.webp';
 import JejuVideo7Img from '@video/img_for_video/jeju/jeju7.webp';
+import type { City } from '@components/CityPage/CityPage.props';
 
 export const cityList = [
   {
@@ -213,4 +214,4 @@ export const cityList = [
       { id: 7, src: JejuVideo7, img: JejuVideo7Img },
     ],
   },
-];
+] satisfies City[];

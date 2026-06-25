@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import classes from './Footer.module.scss';
 import logo from '@images/logo/logo_blue.webp';
-import Telegram from '@images/icons/telegram.svg';
+import { FooterContactLinks } from './FooterContactLinks/FooterContactLinks';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,41 +32,7 @@ export const Footer = () => {
               </Link>
             </div>
             <div className={classes.footer_firstContainerRight}>
-              <div className={classes.footer_phonesWrapper}>
-                <div className={classes.footer_phones}>
-                  <Link
-                    href="https://t.me/elena_6464"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Telegram className={classes.footer_logoSocialLink} />
-                  </Link>
-                  <Link
-                    className={classes.btn_animationLine}
-                    href="tel:89628786400"
-                  >
-                    <span>&nbsp;8 962 878 64 00&nbsp;</span>
-                    <span
-                      aria-hidden="true"
-                      className={classes.btn_animationLineHoverText}
-                    >
-                      &nbsp;8 962 878 64 00&nbsp;
-                    </span>
-                  </Link>
-                  <Link
-                    className={classes.btn_animationLine}
-                    href="mailto:elena.iartseva64@gmail.com"
-                  >
-                    <span>&nbsp;elena.iartseva64@gmail.com&nbsp;</span>
-                    <span
-                      aria-hidden="true"
-                      className={classes.btn_animationLineHoverText}
-                    >
-                      &nbsp;elena.iartseva64@gmail.com&nbsp;
-                    </span>
-                  </Link>
-                </div>
-              </div>
+              <FooterContactLinks />
             </div>
           </div>
         </div>

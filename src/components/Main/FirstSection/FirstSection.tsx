@@ -1,6 +1,10 @@
 'use client';
 import { CSSProperties, useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import {
+  compactContainerVariants,
+  slideUpItemVariants,
+} from '@utils/motionVariants';
 import classes from './FirstSection.module.scss';
 
 interface MatrixColumn {
@@ -30,29 +34,6 @@ export const FirstSection = () => {
     return () => window.removeEventListener('resize', createMatrix);
   }, [createMatrix]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 100, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-      },
-    },
-  };
-
   return (
     <section className={classes.firstSection}>
       <div className={classes.firstSection_matrixContainer}>
@@ -76,14 +57,14 @@ export const FirstSection = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.1 }}
-        variants={containerVariants}
+        variants={compactContainerVariants}
       >
         <h1 className={classes.firstSection_title}>
           Информация для путешествия в Республику Корея
         </h1>
         <motion.div
           className={classes.firstSection_contentBox}
-          variants={itemVariants}
+          variants={slideUpItemVariants}
           transition={{ type: 'tween', duration: 0.2 }}
           whileHover={{ x: -6 }}
         >

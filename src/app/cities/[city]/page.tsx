@@ -1,5 +1,5 @@
-import { CityPage } from '@/components/CityPage/CityPage';
-import { cityList } from '@/utils/constantsCity';
+import { CityPage } from '@components/CityPage/CityPage';
+import { cityList } from '@utils/constantsCity';
 import classes from '@app/App.module.scss';
 import { notFound } from 'next/navigation';
 

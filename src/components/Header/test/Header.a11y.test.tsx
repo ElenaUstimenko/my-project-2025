@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { Header } from './Header';
+import { Header } from '../Header';
 
 jest.mock('@images/btn/burger_menu_white.svg', () => ({
   __esModule: true,

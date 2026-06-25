@@ -39,6 +39,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         aria-modal="true"
       >
         <button
+          type="button"
           className={classes.closeButton}
           onClick={onClose}
           aria-label="Закрыть"

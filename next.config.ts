@@ -42,6 +42,7 @@ const nextConfig: NextConfig = {
       '@images': path.resolve(__dirname, 'public/images'),
       '@video': path.resolve(__dirname, 'public/video'),
       '@vendor': path.resolve(__dirname, 'src/vendor'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
     };
 
     const fileLoaderRule = config.module.rules.find((rule: WebpackRule) =>

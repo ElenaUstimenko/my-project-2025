@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import Cookies from 'js-cookie';
-import { Cookie } from './Cookie';
+import { Cookie } from '../Cookie';
 
 describe('Cookie accessibility', () => {
   beforeEach(() => {

@@ -1,6 +1,6 @@
 ![Image alt](./public/images/for_readme.webp)
 
-# **my-project 2025 by Next**
+# **my-project 2025 - 2026 by Next**
 
 ---
 
@@ -40,15 +40,19 @@
 
 ✔️ Проверка внешних ссылок и URL-констант
 
-✔️ Проверка маршрутов городов `/cities/...`
+✔️ Проверка маршрутов городов `/cities/...`, `generateStaticParams` и `notFound()`
 
 ✔️ Проверка данных городов, фото, видео и карточек мест
 
 ✔️ Component-тесты Header, Footer и Cookie через React Testing Library
 
-✔️ Проверка `href`, `target`, `rel` у реальных ссылок
+✔️ Проверка поведения Header: внутренние ссылки открываются в текущей вкладке, внешние — в новой
 
-✔️ Accessibility-тесты модалок и кнопок через jest-axe
+✔️ Проверка мобильного меню Header: открытие, закрытие и обработка Escape
+
+✔️ Проверка поведения Modal: закрытие по Escape, overlay click и восстановление scroll-lock
+
+✔️ Accessibility-проверки Cookie, Header, Modal и VideoList через jest-axe
 
 ---
 

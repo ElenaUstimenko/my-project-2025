@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
-import { placesList } from '@/utils/constantsPlaces';
+import { placesList } from '@utils/constantsPlaces';
 import classes from './Places.module.scss';
 
 export const Places = () => {
@@ -54,6 +54,7 @@ export const Places = () => {
       <div className={classes.controls}>
         {canShowLess && (
           <button
+            type="button"
             className={`${classes.control_btn} ${classes.less_btn}`}
             onClick={handleShowLess}
             aria-label="Скрыть карточки"
@@ -64,6 +65,7 @@ export const Places = () => {
 
         {canShowMore && (
           <button
+            type="button"
             className={`${classes.control_btn} ${classes.more_btn}`}
             onClick={handleShowMore}
             aria-label="Показать больше карточек"
